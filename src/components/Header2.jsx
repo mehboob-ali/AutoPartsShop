@@ -2,22 +2,21 @@ import React from 'react'
 import { useState } from 'react';
 import { BsSearch } from 'react-icons/bs';
 import { BsFillTelephoneFill } from 'react-icons/bs'
-function Header() {
+function Header2() {
 const [isNavOpen, setIsNavOpen] = useState(false); // initiate isNavOpen state with false
 
   return (
-    <header className=' md:grid grid-cols-1 items-center justify-evenly p-2 bg-gray-800 text-gray-300 
-    divide-y-2 pt-2 divide-gray-700 w-full gap-2'>
-
-        <div className=' md:grid grid-cols-3'>
-      <h1 className=' lg:text-3xl md:text-left text-center text-2xl '>Auto Parts Shop</h1>
+    <>
+    <header className=' md:flex grid grid-cols-1 items-center justify-between p-2 bg-gray-800 text-gray-300  '>
+      <h1 className=' lg:text-3xl text-center text-2xl py-2 '>Auto Parts Shop</h1>
       <div className=' space-x-2  flex items-center'>
         <input type='search' name='search' className=' text-lg w-full bg-gray-700 p-2 border border-black rounded-xl'
           placeholder=' search by brand, vehicle, part name'>
           
         </input>
-        <BsSearch className=' text-3xl md:text-4xl hover:text-4xl md:hover:text-5xl '></BsSearch>
-          {/* {/* <!-- Mobile menu button 2--> */}
+        <BsSearch className=' text-4xl hover:text-5xl'></BsSearch>
+        
+    {/* {/* <!-- Mobile menu button 2--> */}
 
     <div className=" flex text-gray-700 items-center justify-end px-4 border-b border-gray-700 py-6 md:hidden pl-4">
       <nav>
@@ -63,6 +62,7 @@ const [isNavOpen, setIsNavOpen] = useState(false); // initiate isNavOpen state w
           </div>
         </section>
 
+
       </nav>
           <style>{`
           .hideMenuNav {
@@ -84,29 +84,34 @@ const [isNavOpen, setIsNavOpen] = useState(false); // initiate isNavOpen state w
           }
           `}</style>
         </div>
-        </div>
-        <div className=' hidden md:text-2xl  text-lg md:flex items-center justify-end space-x-2 p-2'>
+      </div>
+      
+
+
+      
+
+      <div className=' hidden md:text-2xl text-lg md:flex items-center justify-center space-x-2 p-2'>
         <BsFillTelephoneFill></BsFillTelephoneFill>
         <a href='tel:+91 123456789'>+91 123456789</a>
-         </div>
-         </div>
+      </div>
 
-        {/* Desktop Menu  */}
-
-         <div className=' pt-1 hidden md:block'>
-            <nav className=' '>
-                <ul className=' text-2xl text-gray-300 bg-gray-800 flex justify-center space-x-12 '>
+      
+    </header>
+                {/* Desktop Menu */}
+        <div className=' divide-y-4 hidden md:block divide-gray-700 w-full h-0.5'>
+                <div>
+                    <span className=' '></span>
+                </div>
+            <nav>
+                <ul className=' text-2xl text-gray-300 bg-gray-800 flex justify-center space-x-12 p-2 '>
                     <a href='/services'><li className=' hover:underline'>Services</li></a>  
                     <a href='/about'><li className=' hover:underline'>About</li></a>
                     <a href='/contact'><li className=' hover:underline'>Contact us</li></a>
                 </ul>
             </nav>
-        </div>    
-
-  
-
-</header>
+        </div>
+    </>
   )
 }
 
-export default Header
+export default Header2
