@@ -17,6 +17,7 @@ const [isNavOpen, setIsNavOpen] = useState(false); // initiate isNavOpen state w
           
         </input>
         <BsSearch className=' text-3xl md:text-4xl hover:text-4xl md:hover:text-5xl '></BsSearch>
+        
           {/* {/* <!-- Mobile menu button 2--> */}
 
     <div className=" flex text-gray-700 items-center justify-end px-4 border-b border-gray-700 py-6 md:hidden pl-4">
@@ -84,6 +85,7 @@ const [isNavOpen, setIsNavOpen] = useState(false); // initiate isNavOpen state w
           }
           `}</style>
         </div>
+        
         </div>
         <div className=' hidden md:text-2xl  text-lg md:flex items-center justify-end space-x-2 p-2'>
         <BsFillTelephoneFill></BsFillTelephoneFill>
@@ -102,8 +104,6 @@ const [isNavOpen, setIsNavOpen] = useState(false); // initiate isNavOpen state w
                 </ul>
             </nav>
         </div>    
-
-  
 
 </header>
   )
