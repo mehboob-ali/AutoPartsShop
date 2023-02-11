@@ -6,7 +6,7 @@ function Header() {
 const [isNavOpen, setIsNavOpen] = useState(false); // initiate isNavOpen state with false
 
   return (
-    <header className=' md:grid grid-cols-1 items-center justify-evenly p-2 bg-gray-800 text-gray-300 
+    <header className=' md:grid grid-cols-1 items-center justify-evenly p-2 bg-gradient-to-r from-gray-800 to-gray-700 text-gray-300 
     divide-y-2 pt-2 divide-gray-700 w-full gap-2'>
 
         <div className=' md:grid grid-cols-3'>
@@ -97,7 +97,7 @@ const [isNavOpen, setIsNavOpen] = useState(false); // initiate isNavOpen state w
 
          <div className=' pt-1 hidden md:block'>
             <nav className=' '>
-                <ul className=' text-2xl text-gray-300 bg-gray-800 flex justify-center space-x-12 '>
+                <ul className=' text-2xl text-gray-300 flex justify-center space-x-12 '>
                     <a href='/services'><li className=' hover:underline'>Services</li></a>  
                     <a href='/about'><li className=' hover:underline'>About</li></a>
                     <a href='/contact'><li className=' hover:underline'>Contact us</li></a>
