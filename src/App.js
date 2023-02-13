@@ -5,7 +5,7 @@ import Home from './components/Home';
 import Header2 from './components/Header2';
 function App() {
   return (
-    <div className=' bg-gradient-to-b from-[#2C5364] via-[#203A43] to-gray-800'>
+    <div className=' bg-gradient-to-b bg-gray-800'>
       <Header></Header>
       <Home></Home>
       <br />
