@@ -45,6 +45,7 @@ const AddData = () => {
           partName: partName, partPrice : partPrice, partInventory:partInventory
           });
         console.log("done")
+        alert("Dadta added")
       }
 
       const deleteData=async()=>{
