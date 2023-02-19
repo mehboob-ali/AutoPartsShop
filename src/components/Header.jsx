@@ -16,7 +16,7 @@ function Header() {
 
         <div className=' md:grid grid-cols-3'>
          <Link to={'/'}>
-          <h1 className=' lg:text-3xl md:text-left text-center text-2xl '>Auto Parts Shop</h1>
+          <h1 className=' lg:text-3xl md:text-left text-center text-2xl '>Chand Show Parts</h1>
           </Link>
           <div className=' space-x-2  flex items-center'>
             <input type='search' name='search' className=' text-lg w-full bg-gray-700 p-2 border border-black rounded-xl'
