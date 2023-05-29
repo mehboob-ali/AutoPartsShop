@@ -123,7 +123,7 @@ function Header() {
       </header>
       <Outlet />
       <div className=' h-96 p-16'>
-        <p className=' text-center text-lg text-gray-300 items-center justify-center'>All rights Reserver</p>
+        <p className=' text-center text-lg text-gray-300 items-center justify-center'>All rights Reserved</p>
       </div>
     </div>
   )

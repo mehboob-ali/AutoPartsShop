@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { addDoc, doc, getDoc, getDocs,where,   updateDoc, setDoc, collection, deleteDoc, query } from "firebase/firestore";
-import { db } from '../firebaseconfig';
 import { querystring } from '@firebase/util';
 import {BiArrowBack} from "react-icons/bi"
 import { Link } from 'react-router-dom';
 const AddData = () => {
     const [autoPartsData, setautoPartsData] = useState([]);
     const colRef = collection(db, "brand")
-    
+    const db = 'db'
       // State variables to store the input values
         //For selected values
       const [selectedBrand, setSelectedBrand] = useState('');
@@ -45,7 +44,7 @@ const AddData = () => {
           partName: partName, partPrice : partPrice, partInventory:partInventory
           });
         console.log("done")
-        alert("Dadta added")
+        alert("Data added")
       }
 
       const deleteData=async()=>{
