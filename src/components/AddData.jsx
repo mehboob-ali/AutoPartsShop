@@ -43,8 +43,14 @@ const AddData = () => {
         await setDoc(doc(modeCollection, partName), {
           partName: partName, partPrice : partPrice, partInventory:partInventory
           });
+<<<<<<< HEAD
         console.log("done")
         alert("Data added")
+=======
+        console.log("done");
+        alert("Data added")
+
+>>>>>>> ccdcb056e38adfbe3512f5306421161d19f02a5f
       }
 
       const deleteData=async()=>{
