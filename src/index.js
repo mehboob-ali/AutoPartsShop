@@ -10,35 +10,22 @@ import AddData from './components/AddData';
 import Header from "./components/Header";
 import UpdateData from './components/UpdateData';
 import { BrandList } from "./components/Update/Brand";
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: <Header />,
-//     children: [
-//       {
-//         path: "/addData",
-//         element: <AddData />,
-//       },
-//       {
-//         path: "/updateData/*",
-//         element: <UpdateData />,
-//       },
-//       {
-//         path: "/",
-//         element: <App />,
-//       },
-//     ],
-//   },
-//   {
-//     path: "/brand",
-//     element: <BrandList />,
-//   },
-// ]);
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Layout from "./components/Layout";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    {/* <RouterProvider router={router} /> */}
-  <App />
+    <Router>
+      <Layout>
+      
+      <Routes>
+        <Route path='/' element={<App />} />
+        <Route path='/addData' element={<AddData />} />
+        <Route path='/updateData' element={<UpdateData />} />
+      </Routes>
+      
+      </Layout>
+    </Router>
   </React.StrictMode>
 );
 

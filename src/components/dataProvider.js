@@ -17,10 +17,10 @@ const dataProvider = {
     const { target, id } = params;
     const brandRef = doc(db, resource, id);
     const modelsRef = collection(brandRef, 'models'); // Update the collection reference
-    console.log(modelsRef)
+    // console.log(modelsRef)
   
     const querySnapshot = await getDocs(modelsRef);
-    console.log(querySnapshot.docs.map(d=>({id : d.id, ...d.data()})))
+    // console.log(querySnapshot.docs.map(d=>({id : d.id, ...d.data()})))
     const total = querySnapshot.size;
   
     const start = (page - 1) * perPage;
@@ -60,8 +60,12 @@ const dataProvider = {
     // Loop through each ID and delete the corresponding document
     ids.forEach((id) => {
       const docRef = doc(db, resource, id);
-      console.log(docRef,"dfadsfdsf")
-      batch.delete(docRef);
+      console.log("dfadsfdsf",docRef)
+
+      const brandRef = doc(db, resource, id);
+      const modelsRef = collection(brandRef, 'models');
+
+      // batch.delete(docRef);
     });
 
     await batch.commit();

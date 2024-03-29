@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { doc, getDoc, getDocs, collection, query, where } from "firebase/firestore";
-import { db } from '../firebaseconfig';
+import { doc, getDoc, getDocs, collection, getFirestore, query, where } from "firebase/firestore";
+import app  from '../firebaseconfig';
 import { json } from 'react-router-dom';
 
 const FindParts = () => {
+  const db = getFirestore(app);
+
   const brandsRef = collection(db,"brand")
 
     const [autoPartsData, setautoPartsData] = useState([]);
@@ -104,7 +106,7 @@ const FindParts = () => {
     return (
       <div className='  '>
         <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 lg:px-36 w-full
-         py-4 my-2 px-8 text-center items-center justify-center'>
+         py-4 mb-2 px-8 text-center items-center justify-center'>
           <div className=' p-4'>
             <h1 className=' text-gray-200 text-2xl md:text-4xl'>Select vehicle to show details </h1>
           </div>
@@ -139,7 +141,7 @@ const FindParts = () => {
               onChange={handlePartChange} value={selectedPart || ''} disabled={!selectedModel}>
               <option value="">Select part</option>
               {partList.map(part => (
-                <option key={part.id} value={JSON.stringify(part)}>
+                <option value={JSON.stringify(part)}>
                   {part.partName}
                 </option>
               ))}

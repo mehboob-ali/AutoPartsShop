@@ -9,16 +9,20 @@ import { CommentList, CommentEdit, CommentCreate, CommentShow} from './comment'
 import { BrandList, BrandCreate, BrandEdit, BrandShow } from './components/Update/Brand.jsx';
 import dataProvider from './components/dataProvider.js';
 import { ModelList, ModelCreate } from './components/Update/Model';
+import Home from './components/Home';
 
 
 function App() {
   return (
-    <Admin
-      dataProvider={dataProvider}
-      title="Admin Dashboard"
-    >
-    <Resource name="brand" list={BrandList}  create={BrandCreate} edit={BrandEdit} />
-  </Admin>
+  //   <Admin
+  //     dataProvider={dataProvider}
+  //     title="Admin Dashboard"
+  //   >
+  //   <Resource name="brand" list={BrandList}  create={BrandCreate} edit={BrandEdit} />
+  // </Admin>
+  <div className=' bg-gray-800'>
+  <Home></Home>
+  </div>
   );
 }
 

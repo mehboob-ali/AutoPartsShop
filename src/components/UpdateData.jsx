@@ -6,8 +6,10 @@ import { BrandList, BrandEdit, BrandCreate } from './Update/Brand'
 import { ModelList, ModelEdit, ModelCreate } from './Update/Model';
 import { PartList, PartEdit, PartCreate } from './Update/Part';
 import dataProvider from './dataProvider';
+import { QueryClient, QueryClientProvider } from 'react-query';
 function UpdateData() {
   const [data, setData] = useState(null);
+  const queryClient = new QueryClient();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,9 +41,15 @@ function UpdateData() {
   if (!data) {
     return <div>Loading...</div>;
   }
-
+console.log('fdsanfkdnsafnjdsjfndsa,', BrandList)
   return(
-<h1>fds</h1>
+          <div>
+                <QueryClientProvider client={queryClient}>
+
+            <BrandList brandCollection />
+            </QueryClientProvider>
+
+          </div>
   )
 }
 

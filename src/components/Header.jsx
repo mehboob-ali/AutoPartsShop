@@ -108,7 +108,7 @@ function Header() {
               <a href='/services'><li className=' hover:underline'>Services</li></a>
               <a href='/about'><li className=' hover:underline'>About</li></a>
               <a href='/contact'><li className=' hover:underline'>Contact us</li></a>
-              <Link to={'/AddData'}>
+              <Link to='/addData'>
                 <li className=' bg-gray-300 p-2 animate-pulse rounded-lg text-gray-800'>
                   Add New</li>
               </Link>
@@ -117,14 +117,12 @@ function Header() {
         </div>
 
         <div className=' md:hidden text-center pt-3 pb-1'>
-          <Link to='/AddData' className=' text-xl bg-gray-300 p-2 animate-pulse rounded-lg text-gray-800'>Add New</Link>
+          <Link to='/addData' className=' text-xl bg-gray-300 p-2 animate-pulse rounded-lg text-gray-800'>Add New </Link>
         </div>
 
       </header>
       <Outlet />
-      <div className=' h-96 p-16'>
-        <p className=' text-center text-lg text-gray-300 items-center justify-center'>All rights Reserved</p>
-      </div>
+
     </div>
   )
 }

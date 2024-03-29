@@ -1,5 +1,5 @@
 // in src/Brand.js
-import { Edit, Create, SimpleForm, TextInput, List, Datagrid, TextField, Show, SimpleShowLayout, EditButton } from 'react-admin';
+import { Edit, Create, SimpleForm, TextInput, List, Datagrid, TextField, Show, SimpleShowLayout, EditButton,  } from 'react-admin';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { useQueryClient } from 'react-query';
 import {   ReferenceArrayField, ReferenceManyField, SingleFieldList } from 'react-admin';
@@ -20,8 +20,7 @@ export const BrandList = (props) => (
     </Datagrid>
   </List>
   
-);
-
+);     
 export const BrandEdit = (props) => (
   <Edit {...props}>
     <SimpleForm>
