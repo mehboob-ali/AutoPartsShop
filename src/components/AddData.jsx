@@ -22,7 +22,7 @@ const AddData = () => {
       const [partInventory, setPartInventory] = useState('');
 
       const [parts, setParts] = useState([{ partName: '', partPrice: '', partInventory: '' }]);
-
+      const [showBrandName, setShowBrandName] = useState([])
       useEffect(() => {
       const fetchData = async () => {
         const snapshot = await getDocs(colRef);
@@ -47,7 +47,7 @@ const AddData = () => {
         const partCollection = collection(modeDocRef, "parts");
         parts.forEach(async(data)=>{
           await setDoc(doc(partCollection, data.partName), {
-            partName: data.partName, partPrice : data.partPrice, partInventory: data.partInventory
+            id: data.partName, partName: data.partName, partPrice : data.partPrice, partInventory: data.partInventory
             });
         })
         
@@ -125,7 +125,7 @@ const AddData = () => {
 
 
   return (
-    <div className=' bg-gray-800  p-8  text-xl text-gray-300 '>
+    <div className=' bg-gray-800  text-xl text-gray-300 '>
       <div>
         <Link to={'/'}>
           <BiArrowBack className=' text-4xl rounded-lg bg-gray-300 p-2 text-gray-800'></BiArrowBack>
@@ -141,7 +141,7 @@ const AddData = () => {
 
                 <input type='text' className=' text-black p-2 rounded-lg capitalize hover:bg-gray-300 
                  hover:ring-2 ' value={brandName} onChange={handleBrandChange}></input>
-                {/* <label>OR</label>
+                <label>OR</label>
                 
                 <select name='brand' id='brand' className='block w-full bg-white border border-gray-400 text-black
                 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow  leading-tight focus:outline-none focus:shadow-outline'
@@ -153,7 +153,7 @@ const AddData = () => {
                         {brandName}
                         </option>
                     ))}
-            </select> */}
+            </select>
             <label>Enter Model/vehicle name</label>
             <input type='text' className=' text-black p-2 rounded-lg capitalize hover:bg-gray-300
                  hover:ring-2 ' onChange={handleVehicleChange} value={vehicleName}></input>

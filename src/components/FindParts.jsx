@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { doc, getDoc, getDocs, collection, getFirestore, query, where } from "firebase/firestore";
+import { doc, getDoc, getDocs, collection, getFirestore, query, where, updateDoc, setDoc } from "firebase/firestore";
 import app  from '../firebaseconfig';
 import { json } from 'react-router-dom';
+import { Firestore, FieldValue } from 'firebase/firestore';
+import { update } from 'firebase/database';
+import { increment } from 'firebase/firestore';
+const firestore = new Firestore();
 
 const FindParts = () => {
   const db = getFirestore(app);
@@ -90,13 +94,30 @@ const FindParts = () => {
 
     
     const handlePartChange = async event => {
+      console.log("CHECKinG part in handlepartchange", event.target.value)
       const partData = JSON.parse(event.target.value);
-      setSelectedPart((event.target.value))
+      console.log('partttr data idididididi', partData.id);
+      setSelectedPart(partData.id)
       console.log("json", partData);
       setPartInfo(partData)
 
 
+
     };
+
+    const reduceInventory = async()=>{
+      // const docRef = doc(`${db},brands/${selectedBrand}/collections/models/${selectedModel}/collection/parts/${selectedPart}`);
+      const docRef = doc(db,'brand', selectedBrand, 'models', selectedModel, 'parts', selectedPart)
+      const docSnap = await getDoc(docRef);
+      console.log("show me the selected part yeaaaaaaaaaaaaaaa:", selectedPart, '\n')
+
+      const updateData={
+        partInventory : increment(-1)
+        
+      };
+      await updateDoc(docRef, updateData);
+      alert('item sold')
+    }
   
     console.log("part list", partList)
     // let selectedBrandData = selectedBrand ? autoPartsData.brands.find(brand => brand.name === selectedBrand) : null;
@@ -104,7 +125,7 @@ const FindParts = () => {
     // let selectedPartData = selectedModelData ? selectedModelData.parts.find(part => part.name === selectedPart) : null;
   
     return (
-      <div className='  '>
+      <div className=' m-8 bg-red-500 '>
         <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 lg:px-36 w-full
          py-4 mb-2 px-8 text-center items-center justify-center'>
           <div className=' p-4'>
@@ -141,7 +162,7 @@ const FindParts = () => {
               onChange={handlePartChange} value={selectedPart || ''} disabled={!selectedModel}>
               <option value="">Select part</option>
               {partList.map(part => (
-                <option value={JSON.stringify(part)}>
+                <option value={JSON.stringify(part)} key={part.id}>
                   {part.partName}
                 </option>
               ))}
@@ -159,7 +180,13 @@ const FindParts = () => {
             <label className=' text-lg md:text-2xl'>Price: </label>
                 <label className=' font-bold text-lg md:text-2xl'>{partInfo.partPrice} <br /></label>
             <label className=' text-lg md:text-2xl '>Inventory: </label>
-                <label className=' font-bold text-lg md:text-2xl'>{partInfo.partInventory}</label>
+                <label className=' font-bold text-lg md:text-2xl'>{partInfo.partInventory}</label> <br />
+            
+            <button className=' text-md md:text-lg border-2 rounded-md px-4 py-1 mt-6 bg-red-600'
+              onClick={reduceInventory}>
+                Sell
+            </button>
+
             </div>
           </div>
           )

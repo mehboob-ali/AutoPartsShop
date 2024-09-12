@@ -12,7 +12,8 @@ import UpdateData from './components/UpdateData';
 import { BrandList } from "./components/Update/Brand";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from "./components/Layout";
-
+import Inventory from "./components/Inventory/Inventory";
+import NewPage from "./components/NewPage";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Router>
@@ -22,6 +23,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <Route path='/' element={<App />} />
         <Route path='/addData' element={<AddData />} />
         <Route path='/updateData' element={<UpdateData />} />
+        <Route path='/inventory' element={<Inventory />} />
+        <Route path='/profile' element={<NewPage />} />
+
       </Routes>
       
       </Layout>
